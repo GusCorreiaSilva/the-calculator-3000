@@ -25,26 +25,26 @@ body {
 .secao-teclado {
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 .teclado .numeros {
   text-align: center;
   display: grid;
-  grid-template-columns: repeat(3, 30px);
+  grid-template-columns: repeat(4, 1fr);
   gap: 5px;
 }
-.tecla { 
+.tecla {
   text-align: center;
   color: azure;
   background-color: rgb(252, 25, 40);
   border: 2px solid rgb(70, 227, 255);
   border-radius: 25%;
-  padding: 10px;
+  padding: 10px 10px;
+  font-size: x-large;
+  width: 50px;
+  height: 50px;
 }
-.igual {
-  text-align: center;
-  color: azure;
+.tecla .igual {
   background-color: rgb(252, 25, 40);
   border: 2px solid rgb(70, 227, 255);
-  border-radius: 25%;
-  padding: 10px;
 }
