@@ -20,6 +20,8 @@ body {
 }
 .teclado {
   display: flex;
+  justify-content: center;
+  align-items: center;
   gap: 25px;
 }
 .secao-teclado {
@@ -28,10 +30,11 @@ body {
   align-items: center;
 }
 .teclado .numeros {
-  text-align: center;
   display: grid;
+  text-align: center;
+  justify-content: center;
   grid-template-columns: repeat(4, 1fr);
-  gap: 5px;
+  gap: 15px;
 }
 .tecla {
   text-align: center;
@@ -44,7 +47,16 @@ body {
   width: 50px;
   height: 50px;
 }
-.tecla .igual {
-  background-color: rgb(252, 25, 40);
+.igual {
+  background-color: rgb(150, 25, 252);
+  border: 2px solid rgb(70, 227, 255);
+}
+.secao-operadores {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.operadores {
+  background-color: rgb(252, 25, 127);
   border: 2px solid rgb(70, 227, 255);
 }
