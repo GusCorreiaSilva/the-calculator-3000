@@ -1,10 +1,20 @@
-const numeros = document.querySelectorAll(".tecla.numero");
-const valor = document.querySelector(".valor")
+//valores da operação
+let a = null;
+let b = null;
 
-numeros.forEach((n) => {
+const numeros = document.querySelectorAll(".tecla.numero");
+const valor = document.querySelector(".valor");
+valor.dataset.valor = 0;
+
+[...numeros].forEach((n) => {
   n.addEventListener("click", () => {
-    valor.innerHTML += Number(n.dataset.valor)
-    console.log(n.dataset.valor);
+    if (a === null) {
+      a = n.dataset.valor;
+    } else {
+      b = n.dataset.valor;
+    }
+    console.log("A:", a);
+    console.log("B:", b);
   });
 });
 
