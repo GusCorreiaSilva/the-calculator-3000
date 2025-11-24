@@ -12,12 +12,10 @@ valor.dataset.valor = 0;
 //add evento de click em cada tecla 
 [...numeros].forEach((n) => {
   n.addEventListener("click", () => {
+
     //add valores a variaveis A e B
-    if (a === null) {
-      a = n.dataset.valor;
-    } else {
-      b = n.dataset.valor;
-    }
+    (a === null) ? a = n.dataset.valor : b = n.dataset.valor;
+
     console.log("A:", a);
     console.log("B:", b);
   });
