@@ -6,6 +6,7 @@ let resultado = null;
 const igual = document.querySelector(".tecla.igual");
 const menos = document.querySelector(".tecla.subtracao");
 const mais = document.querySelector(".tecla.soma");
+const vezes = document.querySelector(".tecla.multiplicacao");
 
 //Teclas numericas
 const numeros = document.querySelectorAll(".tecla.numero");
@@ -17,7 +18,6 @@ valor.dataset.valor = 0;
 //add evento de click em cada tecla
 [...numeros].forEach((n) => {
   n.addEventListener("click", () => {
-    
     //add valores numericos a variaveis A e B
     //valor.innerHTML= null serve para apagar valor do calculo anterior
     a === null ? (valor.innerHTML = null, a = Number(n.dataset.valor)) : (b = Number(n.dataset.valor));
@@ -39,6 +39,12 @@ menos.addEventListener("click", () => {
     valor.innerHTML += menos.dataset.valor;
   }
 });
+//vai adicionar o valor de multiplicação
+vezes.addEventListener("click", () => {
+  if (!valor.innerHTML.includes(vezes.dataset.valor)) {
+    valor.innerHTML += 'x';
+  }
+});
 //faz o calculo
 igual.addEventListener("click", () => {
   if (valor.innerHTML.includes(mais.dataset.valor)) {
@@ -46,6 +52,9 @@ igual.addEventListener("click", () => {
     valor.innerHTML = resultado;
   } else if (valor.innerHTML.includes(menos.dataset.valor)) {
     resultado = a - b;
+    valor.innerHTML = resultado;
+  } else if (valor.innerHTML.includes('x')) {
+    resultado = a * b;
     valor.innerHTML = resultado;
   }
   //reseta os valores de A e B
