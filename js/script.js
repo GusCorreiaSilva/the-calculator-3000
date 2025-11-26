@@ -19,6 +19,7 @@ valor.dataset.valor = 0;
   n.addEventListener("click", () => {
     
     //add valores numericos a variaveis A e B
+    //valor.innerHTML= null serve para apagar valor do calculo anterior
     a === null ? (valor.innerHTML = null, a = Number(n.dataset.valor)) : (b = Number(n.dataset.valor));
     valor.innerHTML += n.dataset.valor;
 
@@ -26,16 +27,19 @@ valor.dataset.valor = 0;
     console.log("B:", b);
   });
 });
+//vai adicionar o valor de adição
 mais.addEventListener("click", () => {
   if (!valor.innerHTML.includes(mais.dataset.valor)) {
     valor.innerHTML += mais.dataset.valor;
   }
 });
+//vai adicionar o valor de subtração
 menos.addEventListener("click", () => {
   if (!valor.innerHTML.includes(menos.dataset.valor)) {
     valor.innerHTML += menos.dataset.valor;
   }
 });
+//faz o calculo
 igual.addEventListener("click", () => {
   if (valor.innerHTML.includes(mais.dataset.valor)) {
     resultado = a + b;
@@ -44,6 +48,7 @@ igual.addEventListener("click", () => {
     resultado = a - b;
     valor.innerHTML = resultado;
   }
+  //reseta os valores de A e B
   a = null
   b = null
 });
