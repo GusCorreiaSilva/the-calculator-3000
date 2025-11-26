@@ -17,8 +17,9 @@ valor.dataset.valor = 0;
 //add evento de click em cada tecla
 [...numeros].forEach((n) => {
   n.addEventListener("click", () => {
+    
     //add valores numericos a variaveis A e B
-    a === null ? (a = Number(n.dataset.valor)) : (b = Number(n.dataset.valor));
+    a === null ? (valor.innerHTML = null, a = Number(n.dataset.valor)) : (b = Number(n.dataset.valor));
     valor.innerHTML += n.dataset.valor;
 
     console.log("A:", a);
@@ -41,8 +42,10 @@ igual.addEventListener("click", () => {
     valor.innerHTML = resultado;
   } else if (valor.innerHTML.includes(menos.dataset.valor)) {
     resultado = a - b;
-    valor.innerHTML = a - b;
+    valor.innerHTML = resultado;
   }
+  a = null
+  b = null
 });
 
 console.log([...numeros]);
