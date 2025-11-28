@@ -1,16 +1,14 @@
 //valores da operação
-let a = null;
-let b = null;
-let resultado = null;
+let a = "";
+let b = "";
+let operador = null;
 
 const igual = document.querySelector(".tecla.igual");
 const menos = document.querySelector(".tecla.subtracao");
 const mais = document.querySelector(".tecla.soma");
 const vezes = document.querySelector(".tecla.multiplicacao");
-
 //Teclas numericas
 const numeros = document.querySelectorAll(".tecla.numero");
-
 //seleção do campo onde os valores vão ser mostrado
 const valor = document.querySelector(".valor");
 valor.dataset.valor = 0;
@@ -18,49 +16,45 @@ valor.dataset.valor = 0;
 //add evento de click em cada tecla
 [...numeros].forEach((n) => {
   n.addEventListener("click", () => {
-    //add valores numericos a variaveis A e B
-    //valor.innerHTML= null serve para apagar valor do calculo anterior
-    a === null ? (valor.innerHTML = null, a = Number(n.dataset.valor)) : (b = Number(n.dataset.valor));
-    valor.innerHTML += n.dataset.valor;
+
+      if (operador === null) {
+     
+      a += n.dataset.valor;
+      valor.innerHTML = a;
+    } else {
+  
+      b += n.dataset.valor;
+      valor.innerHTML = a + operador + b;
+    }
 
     console.log("A:", a);
     console.log("B:", b);
   });
 });
-//vai adicionar o valor de adição
-mais.addEventListener("click", () => {
-  if (!valor.innerHTML.includes(mais.dataset.valor)) {
-    valor.innerHTML += mais.dataset.valor;
-  }
-});
-//vai adicionar o valor de subtração
-menos.addEventListener("click", () => {
-  if (!valor.innerHTML.includes(menos.dataset.valor)) {
-    valor.innerHTML += menos.dataset.valor;
-  }
-});
-//vai adicionar o valor de multiplicação
-vezes.addEventListener("click", () => {
-  if (!valor.innerHTML.includes(vezes.dataset.valor)) {
-    valor.innerHTML += 'x';
-  }
-});
+[mais, menos, vezes].forEach(op => {
+  op.addEventListener('click', () => {
+    if (operador === null && a !== "") {
+      operador = op.dataset.valor === "x" ? "x" : op.dataset.valor;
+      valor.innerHTML = a + operador;
+    }
+  })
+})
+
 //faz o calculo
 igual.addEventListener("click", () => {
-  if (valor.innerHTML.includes(mais.dataset.valor)) {
-    resultado = a + b;
-    valor.innerHTML = resultado;
-  } else if (valor.innerHTML.includes(menos.dataset.valor)) {
-    resultado = a - b;
-    valor.innerHTML = resultado;
-  } else if (valor.innerHTML.includes('x')) {
-    resultado = a * b;
-    valor.innerHTML = resultado;
-  }
-  //reseta os valores de A e B
-  a = null
-  b = null
-});
+   let resultado = 0;
+// const com A e B em numero
+  const numA = Number(a);
+  const numB = Number(b);
+// fazendo o calculo
+  if (operador === "+") resultado = numA + numB;
+  if (operador === "-") resultado = numA - numB;
+  if (operador === "x") resultado = numA * numB;
 
-console.log([...numeros]);
-console.log(mais.dataset.valor);
+  valor.innerHTML = resultado;
+
+  // reseta
+  a = resultado.toString();
+  b = "";
+  operador = null;
+});
