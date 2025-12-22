@@ -62,3 +62,12 @@ body {
   background-color: rgb(252, 25, 127);
   border: 2px solid rgb(70, 227, 255);
 }
+@media(max-width: 775px) {
+  .secao-teclado {
+    padding: 30px;
+  } 
+  .teclado .numeros {
+      display: flex;
+      flex-wrap: wrap;
+  }
+} 
