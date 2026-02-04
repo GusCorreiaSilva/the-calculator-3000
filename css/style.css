@@ -41,8 +41,8 @@ body {
 .tecla {
   text-align: center;
   color: azure;
-  background-color: rgb(252, 25, 40);
-  border: 2px solid rgb(70, 227, 255);
+  background-color: rgb(49, 49, 49);
+  border: 2px solid rgb(52, 157, 175);
   border-radius: 25%;
   padding: 10px 10px;
   font-size: x-large;
@@ -53,13 +53,19 @@ body {
   background-color: rgb(150, 25, 252);
   border: 2px solid rgb(70, 227, 255);
 }
+.del {
+  text-align: center;
+  justify-content: center;
+  background-color: rgb(252, 25, 40);
+  border: 2px solid rgb(70, 227, 255);
+}
 .secao-operadores {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 .operadores {
-  background-color: rgb(252, 25, 127);
+  background-color: rgb(150, 25, 252);
   border: 2px solid rgb(70, 227, 255);
 }
 @media(max-width: 775px) {
