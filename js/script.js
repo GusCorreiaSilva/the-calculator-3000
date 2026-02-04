@@ -7,8 +7,10 @@ const igual = document.querySelector(".tecla.igual");
 const menos = document.querySelector(".tecla.subtracao");
 const mais = document.querySelector(".tecla.soma");
 const vezes = document.querySelector(".tecla.multiplicacao");
+
 //Teclas numericas
 const numeros = document.querySelectorAll(".tecla.numero");
+
 //seleção do campo onde os valores vão ser mostrado
 const valor = document.querySelector(".valor");
 valor.dataset.valor = 0;
@@ -42,10 +44,12 @@ valor.dataset.valor = 0;
 
 //faz o calculo
 igual.addEventListener("click", () => {
-   let resultado = 0;
+   let resultado = "";
+
 // const com A e B em numero
   const numA = Number(a);
   const numB = Number(b);
+
 // fazendo o calculo
   if (operador === "+") resultado = numA + numB;
   if (operador === "-") resultado = numA - numB;
