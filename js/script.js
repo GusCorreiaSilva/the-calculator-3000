@@ -2,12 +2,12 @@
 let a = "";
 let b = "";
 let operador = null;
-
+//tclas operadores
 const igual = document.querySelector(".tecla.igual");
 const menos = document.querySelector(".tecla.subtracao");
 const mais = document.querySelector(".tecla.soma");
 const vezes = document.querySelector(".tecla.multiplicacao");
-
+const del = document.querySelector(".tecla.del");
 //Teclas numericas
 const numeros = document.querySelectorAll(".tecla.numero");
 
@@ -18,13 +18,10 @@ valor.dataset.valor = 0;
 //add evento de click em cada tecla
 [...numeros].forEach((n) => {
   n.addEventListener("click", () => {
-
-      if (operador === null) {
-     
+    if (operador === null) {
       a += n.dataset.valor;
       valor.innerHTML = a;
     } else {
-  
       b += n.dataset.valor;
       valor.innerHTML = a + operador + b;
     }
@@ -33,24 +30,24 @@ valor.dataset.valor = 0;
     console.log("B:", b);
   });
 });
-[mais, menos, vezes].forEach(op => {
-  op.addEventListener('click', () => {
+[mais, menos, vezes].forEach((op) => {
+  op.addEventListener("click", () => {
     if (operador === null && a !== "") {
       operador = op.dataset.valor === "x" ? "x" : op.dataset.valor;
       valor.innerHTML = a + operador;
     }
-  })
-})
+  });
+});
 
 //faz o calculo
 igual.addEventListener("click", () => {
-   let resultado = "";
+  let resultado = "";
 
-// const com A e B em numero
+  // const com A e B em numero
   const numA = Number(a);
   const numB = Number(b);
 
-// fazendo o calculo
+  // fazendo o calculo
   if (operador === "+") resultado = numA + numB;
   if (operador === "-") resultado = numA - numB;
   if (operador === "x") resultado = numA * numB;
