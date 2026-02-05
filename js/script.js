@@ -15,6 +15,23 @@ const numeros = document.querySelectorAll(".tecla.numero");
 const valor = document.querySelector(".valor");
 valor.dataset.valor = 0;
 
+//eventListenner no delete
+del.addEventListener("click", () => {
+  if (operador === null) {
+    //apaga A
+    a = a.slice(0, -1);
+    valor.innerHTML = a || "0";
+  }
+  else if (operador !== null && b === "") {
+    //apaga o operador
+    operador = null;
+    valor.innerHTML = a;
+  } else {
+    b = b.slice(0,-1);
+    valor.innerHTML = a + operador + b;
+  }
+});
+
 //add evento de click em cada tecla
 [...numeros].forEach((n) => {
   n.addEventListener("click", () => {
@@ -25,7 +42,6 @@ valor.dataset.valor = 0;
       b += n.dataset.valor;
       valor.innerHTML = a + operador + b;
     }
-
     console.log("A:", a);
     console.log("B:", b);
   });
