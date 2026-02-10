@@ -10,11 +10,23 @@ const vezes = document.querySelector(".tecla.multiplicacao");
 const del = document.querySelector(".tecla.del");
 //Teclas numericas
 const numeros = document.querySelectorAll(".tecla.numero");
+const ponto = document.querySelector(".tecla.ponto")
 
 //seleção do campo onde os valores vão ser mostrado
 const valor = document.querySelector(".valor");
 valor.dataset.valor = 0;
 
+//eventListenner no ponto
+ponto.addEventListener("click", () => {
+  if (operador === null) {
+    a += ponto.dataset.valor
+    valor.innerHTML = a
+
+  } else if (operador !== null && b === "") {
+        b += ponto.dataset.valor
+    valor.innerHTML = b
+  }
+})
 //eventListenner no delete
 del.addEventListener("click", () => {
   if (operador === null) {
