@@ -7,6 +7,7 @@ const igual = document.querySelector(".tecla.igual");
 const menos = document.querySelector(".tecla.subtracao");
 const mais = document.querySelector(".tecla.soma");
 const vezes = document.querySelector(".tecla.multiplicacao");
+const div = document.querySelector(".tecla.divisao");
 const del = document.querySelector(".tecla.del");
 //Teclas numericas
 const numeros = document.querySelectorAll(".tecla.numero");
