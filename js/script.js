@@ -31,6 +31,7 @@ ponto.addEventListener("click", () => {
     }
   } 
 })
+
 //eventListenner no delete
 del.addEventListener("click", () => {
   if (operador === null) {
@@ -62,10 +63,10 @@ del.addEventListener("click", () => {
     console.log("B:", b);
   });
 });
-[mais, menos, vezes].forEach((op) => {
+[mais, menos, vezes, div].forEach((op) => {
   op.addEventListener("click", () => {
     if (operador === null && a !== "") {
-      operador = op.dataset.valor === "x" ? "x" : op.dataset.valor;
+      operador = op.dataset.valor === "/" ? "÷" : op.dataset.valor;
       valor.innerHTML = a + operador;
     }
   });
@@ -74,18 +75,19 @@ del.addEventListener("click", () => {
 //faz o calculo
 igual.addEventListener("click", () => {
   let resultado = "";
-
+  
   // const com A e B em numero
   const numA = Number(a);
   const numB = Number(b);
-
+  
   // fazendo o calculo
   if (operador === "+") resultado = numA + numB;
   if (operador === "-") resultado = numA - numB;
   if (operador === "x") resultado = numA * numB;
-
+  if (operador === "÷") resultado = numA / numB;
+  
   valor.innerHTML = resultado;
-
+  
   // reseta
   a = resultado.toString();
   b = "";
