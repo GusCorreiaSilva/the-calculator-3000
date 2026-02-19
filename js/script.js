@@ -19,13 +19,16 @@ valor.dataset.valor = 0;
 //eventListenner no ponto
 ponto.addEventListener("click", () => {
   if (operador === null) {
-    a += ponto.dataset.valor
-    valor.innerHTML = a
-
-  } else if (operador !== null && b === "") {
-        b += ponto.dataset.valor
-    valor.innerHTML = b
-  }
+    if (!a.includes(".")){
+      a += ponto.dataset.valor
+      valor.innerHTML = a
+    }
+  } else {
+    if (!b.includes('.')) {
+      b += ponto.dataset.valor
+      valor.innerHTML = a + operador + b
+    }
+  } 
 })
 //eventListenner no delete
 del.addEventListener("click", () => {
